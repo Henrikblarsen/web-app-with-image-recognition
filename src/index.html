@@ -10,9 +10,16 @@
 
 <body>
   <main>
-    <h1>Web app with image recognition</h1>
-  <p>We can analyzy your image</p>
+    <h1>Vanilla JavaScript App</h1>
+  <p>Loading content from the API: <b id="name">...<</b></p>
   </main>
+
+  <script>
+    (async function() {
+        const { text } = await( await fetch(`/api/message`)).json();
+        document.querySelector('#name').textContent = text;
+    }())
+  </script>
 </body>
 
 </html>
