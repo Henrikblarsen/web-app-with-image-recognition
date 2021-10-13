@@ -19,7 +19,7 @@ namespace Company.Function
             ILogger log)
         {
             
-            var someObject = new { text = "This is the returned message" };
+            var someObject = new {text = "This is the returned message" };
             return new OkObjectResult(someObject);
 
         }

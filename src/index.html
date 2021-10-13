@@ -11,13 +11,13 @@
 <body>
   <main>
     <h1>Vanilla JavaScript App</h1>
-  <p>Loading content from the API: <b id="someObject">...<</b></p>
+  <p>Loading content from the API: <b id="name">...<</b></p>
   </main>
 
   <script>
     (async function() {
         const { text } = await( await fetch(`/api/AnalyzeImage`)).json();
-        document.querySelector('#someObject').textContent = text;
+        document.querySelector('#name').textContent = text;
     }())
   </script>
 </body>
