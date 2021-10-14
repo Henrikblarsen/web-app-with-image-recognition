@@ -19,7 +19,8 @@ namespace Company.Function
         [FunctionName("AnalyseImage")]
         public static async Task<IActionResult>  Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest
-            req, ILogger log, System.Threading.ExecutionContext context)
+            req, ILogger log, Microsoft.Azure.WebJobs.ExecutionContext context)
+            //Dette kode virkede ikke for mig - System.Threading.ExecutionContext context)
         {
             var config = new ConfigurationBuilder()
          .SetBasePath(context.FunctionAppDirectory)
