@@ -1,4 +1,4 @@
-const uri = 'https://web-app-with-image-recognition-hbla.cognitiveservices.azure.com/api/analyseimage';
+const uri = 'https://zealous-stone-08fb5af03.azurestaticapps.net/api/analyseimage';
 let todos = [];
 
 function analyzeImage() {
