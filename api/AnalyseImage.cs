@@ -18,10 +18,9 @@ namespace Company.Function
             req,
             ILogger log)
         {
-            
-            var someObject = new {text = "This is the returned message" };
-            return new OkObjectResult(someObject);
+            /*var someObject = new {text = "This is the returned message" };*/
 
+            return new OkObjectResult("This is the returned message");
         }
     }
 }
