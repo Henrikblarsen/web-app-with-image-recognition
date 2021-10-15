@@ -5,21 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Vanilla JavaScript App!</title>
+  <script src="js/analyzeimage.js" async></script>
 </head>
 
 <body>
   <main>
-    <h1>Vanilla JavaScript App</h1>
-    <p>Loading content from the API: <b id="name">...</b></p>
-    </main>
-
-  <script>
-    (async function() {
-        const { text } = await( await fetch(`/api/analyzeimage`)).json();
-        document.querySelector('#name').textContent = text;
-    }())
-  </script>
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="p-4">Try image recognition here</h2>
+        <div class="p-4">
+          <form action="javascript:void(0);" method="POST" onsubmit="analyzeImage()">
+            <div class="form-group">
+              <label for="imageUrlInput">Image URL</label>
+              <input type="text" class="form-control" id="imageUrlInput" aria-describedby="emailHelp"
+                placeholder="Tilføj url til et billede her">
+              <small id="emailHelp" class="form-text text-muted">Sti til billede skal ende på .jpg eller
+                .png</small>
+            </div>
+            <input type="submit" value="Analysér" class="btn btn-primary">
+          </form>
+          <div hidden id="spinner"></div>
+          <div id="imageDescription"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div id="previewImageContainer"></div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

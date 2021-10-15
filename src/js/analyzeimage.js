@@ -1,10 +1,7 @@
-const uri = 'https://zealous-stone-08fb5af03.azurestaticapps.net/api/analyseimage';
+const uri = 'https://zealous-stone-08fb5af03.azurestaticapps.net/api/AnalyseImage';
 
-function analyzeImage() {
-    spinner.removeAttribute('hidden');
-
+function analyzeImage() {   
     var imageUrl = document.getElementById('imageUrlInput').value;
-
     var isValidUrl = validateUrl(imageUrl);
 
     if (isValidUrl == false) {
@@ -29,7 +26,6 @@ function analyzeImage() {
             return response.json()
         })
         .then(data => {
-            spinner.setAttribute('hidden', '');
             var imageDiv = document.getElementById('previewImageContainer');
             imageDiv.innerHTML = "";
 
@@ -42,7 +38,7 @@ function analyzeImage() {
             var fullTextResponse = '<h4>Anylyze result</h4>';
 
             fullTextResponse += '<p><b>Description</b>: ' + data.description.captions[0].text + '.<p/> ';
-
+            
             if (data.adult.isAdultContent == false) {
                 fullTextResponse += '<b>The image does not contain adult content</b><br />';
             }
@@ -81,4 +77,4 @@ function validateUrl(str) {
         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return !!pattern.test(str);
-} 
+}
