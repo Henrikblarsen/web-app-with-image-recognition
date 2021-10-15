@@ -19,14 +19,14 @@ namespace Company.Function
         [FunctionName("AnalyseImage")]
         public static async Task<IActionResult>  Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest
-            req, ILogger log, Microsoft.Azure.WebJobs.ExecutionContext context)
+            req, ILogger log, ExecutionContext context)
             //Dette kode virkede ikke for mig - System.Threading.ExecutionContext context)
         {
             var config = new ConfigurationBuilder()
-         .SetBasePath(context.FunctionAppDirectory)
-         .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-         .AddEnvironmentVariables()
-         .Build();
+            .SetBasePath(context.FunctionAppDirectory)
+            .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables()
+            .Build();
 
         // Add your Computer Vision subscription key and endpoint
         string subscriptionKey = config["ComputerVisionKey"];
