@@ -38,7 +38,14 @@ function analyzeImage() {
             var fullTextResponse = '<h4>Anylyze result</h4>';
 
             fullTextResponse += '<p><b>Description</b>: ' + data.description.captions[0].text + '.<p/> ';
-            
+
+            if (data.Faces.Age == false) {
+                fullTextResponse += '<b>The person on the picture is</b><br />';
+            }
+            else {
+                fullTextResponse += 'The age cannot be determined<br />';
+            }
+
             if (data.adult.isAdultContent == false) {
                 fullTextResponse += '<b>The image does not contain adult content</b><br />';
             }
