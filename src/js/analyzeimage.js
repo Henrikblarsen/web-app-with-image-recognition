@@ -53,9 +53,11 @@ function analyzeImage() {
                 fullTextResponse += 'The image does contain racy content<br />';
             }
 
-            if (data.face.faces == false) {
+            if (data.faces.age == false) {
                 fullTextResponse += '<b>The Age of the person<br />';
             }
+            else {
+                fullTextResponse += 'Cannot determine age<br />';
 
             fullTextResponse += '<h4>Tags</h4>';
 
